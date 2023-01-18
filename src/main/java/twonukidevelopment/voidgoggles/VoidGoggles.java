@@ -14,8 +14,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.crafting.CrucibleRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.items.ItemsTC;
+import twonukidevelopment.voidgoggles.items.armor.ItemBIGSHOT;
 import twonukidevelopment.voidgoggles.items.armor.ItemVoidGoggles;
 import twonukidevelopment.voidgoggles.items.armor.ItemsVG;
 
@@ -28,7 +30,7 @@ public class VoidGoggles {
 
     public static final String MOD_ID = "voidgoggles";
     public static final String MOD_NAME = "VoidGoggles";
-    public static final String VERSION = "0.1.0";
+    public static final String VERSION = "0.2.0";
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
@@ -53,11 +55,14 @@ public class VoidGoggles {
         ThaumcraftApi.registerResearchLocation(new ResourceLocation("voidgoggles:research/voidgoggles.json"));
 
         ThaumcraftApi.addInfusionCraftingRecipe(new ResourceLocation(VoidGoggles.MOD_ID, "voidgoggles"),
-                new InfusionRecipe("VOIDSEER_GOGGLES", new ItemStack(ItemsVG.itemVoidGoggles, 1, 1), 6,
+                new InfusionRecipe("VOIDSEER_GOGGLES", new ItemStack(ItemsVG.itemVoidGoggles), 6,
                         new AspectList().add(Aspect.VOID, 25).add(Aspect.ELDRITCH, 25).add(Aspect.AURA, 75),
                         new ItemStack(ItemsTC.goggles),
                         "plateVoid", "plateVoid", ItemsTC.mirroredGlass, ItemsTC.mirroredGlass, ItemsTC.charmVoidseer));
 
+        ThaumcraftApi.addCrucibleRecipe(new ResourceLocation(VoidGoggles.MOD_ID, "deliciouskromer"),
+                new CrucibleRecipe("DELICIOUS_KROMER", new ItemStack(ItemsVG.itemBigShot),new ItemStack(ItemsTC.goggles),
+                        new AspectList().add(Aspect.ELDRITCH, 250).add(Aspect.DESIRE, 500).add(Aspect.EXCHANGE, 250).add(Aspect.DARKNESS, 250).add(Aspect.TRAP, 125)));
     }
 
     /**
@@ -106,7 +111,7 @@ public class VoidGoggles {
              event.getRegistry().register(new MySpecialItem().setRegistryName(MOD_ID, "mySpecialItem"));
             */
             event.getRegistry().register(ItemsVG.itemVoidGoggles = new ItemVoidGoggles());
-
+            event.getRegistry().register(ItemsVG.itemBigShot = new ItemBIGSHOT());
         }
 
         /**

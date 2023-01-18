@@ -18,6 +18,25 @@
           "recipes": ["voidgoggles:voidgoggles"]
         }
       ]
+    },
+    {
+      "key": "DELICIOUS_KROMER",
+      "name": "research.DELICIOUS_KROMER.title",
+      "icons": [ "voidgoggles:textures/items/bigshot.png" ],
+      "category": "ELDRITCH",
+      "location": [ -6, 2 ],
+      "parents": [ "VOIDSEER_GOGGLES"],
+      "stages": [
+        {
+          "text": "research.DELICIOUS_KROMER.stage.1",
+          "required_knowledge":["OBSERVATION;ELDRITCH;1","THEORY;ELDRITCH;1"],
+          "warp": 2
+        },
+        {
+          "text": "research.DELICIOUS_KROMER.stage.2",
+          "recipes": ["voidgoggles:deliciouskromer"]
+        }
+      ]
     }
   ]
 }

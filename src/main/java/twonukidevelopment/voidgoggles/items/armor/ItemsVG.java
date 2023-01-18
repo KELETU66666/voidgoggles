@@ -4,4 +4,5 @@ import net.minecraft.item.Item;
 
 public class ItemsVG {
     public static Item itemVoidGoggles;
+    public static Item itemBigShot;
 }
